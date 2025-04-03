@@ -1,0 +1,584 @@
+:root {
+  --primary-color: #ff4f5e;
+  --secondary-color: #5755d9;
+  --bg-color: #f7f8fc;
+  --text-color: #333;
+  --light-gray: #eaeaea;
+  --dark-gray: #666;
+  --white: #fff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.device-container {
+  width: 390px;
+  height: 844px;
+  background-color: var(--white);
+  border-radius: 44px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+  margin: 20px;
+  border: 12px solid #111;
+  display: inline-block;
+}
+
+/* 状态栏样式 */
+.status-bar {
+  height: 44px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.status-bar__time {
+  font-weight: 600;
+}
+
+.status-bar__icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+  height: 83px;
+  background-color: var(--white);
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--light-gray);
+  padding-bottom: 20px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item i {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+/* 内容区域 */
+.content {
+  height: calc(100% - 127px); /* 减去状态栏和导航栏的高度 */
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 32px;
+}
+
+/* 播客卡片样式 */
+.podcast-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.podcast-card__cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.podcast-card__content {
+  padding: 16px;
+}
+
+.podcast-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.podcast-card__creator {
+  color: var(--dark-gray);
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.podcast-card__creator img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.podcast-card__stats {
+  display: flex;
+  color: var(--dark-gray);
+  font-size: 12px;
+  gap: 12px;
+}
+
+/* 播放器样式 */
+.player {
+  background-color: var(--white);
+  height: 60px;
+  border-top: 1px solid var(--light-gray);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: fixed;
+  bottom: 83px;
+  width: 100%;
+}
+
+.player__cover {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+
+.player__info {
+  flex: 1;
+}
+
+.player__title {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player__creator {
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+
+.player__controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* 播客详情页样式 */
+.podcast-detail__header {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podcast-detail__cover {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.podcast-detail__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.podcast-detail__creator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.podcast-detail__creator-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.podcast-detail__actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--light-gray);
+}
+
+.podcast-detail__tabs {
+  display: flex;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 16px;
+}
+
+.podcast-detail__tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.podcast-detail__tab.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.episode-item {
+  padding: 16px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.episode-item__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.episode-item__title {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.episode-item__date {
+  color: var(--dark-gray);
+  font-size: 12px;
+}
+
+.episode-item__description {
+  color: var(--dark-gray);
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.episode-item__stats {
+  display: flex;
+  color: var(--dark-gray);
+  font-size: 12px;
+  gap: 16px;
+}
+
+/* 搜索页样式 */
+.search-header {
+  padding: 16px;
+  position: sticky;
+  top: 44px;
+  background-color: var(--white);
+  z-index: 5;
+}
+
+.search-input {
+  display: flex;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  padding: 0 12px;
+  height: 36px;
+  align-items: center;
+}
+
+.search-input i {
+  color: var(--dark-gray);
+  margin-right: 8px;
+}
+
+.search-input input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+.category-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.category-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.category-item {
+  min-width: 100px;
+  height: 80px;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 500;
+  text-align: center;
+  padding: 8px;
+}
+
+/* 用户详情页样式 */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-stat__value {
+  font-weight: 600;
+}
+
+.profile-stat__label {
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+
+.profile-tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 16px;
+}
+
+.profile-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-weight: 500;
+}
+
+.profile-tab.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* 播放页样式 */
+.playing-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  height: 100%;
+}
+
+.playing-cover {
+  width: 260px;
+  height: 260px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.playing-info {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.playing-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.playing-creator {
+  color: var(--dark-gray);
+  margin-bottom: 16px;
+}
+
+.playing-progress {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: var(--light-gray);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-bar__filled {
+  position: absolute;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  width: 30%;
+}
+
+.progress-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+
+.playing-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.control-btn.large {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  color: var(--white);
+}
+
+.playing-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.playing-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-gray);
+  font-size: 12px;
+  gap: 4px;
+}
+
+.playing-action i {
+  font-size: 24px;
+}
+
+/* 设置页样式 */
+.settings-list {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  color: var(--primary-color);
+}
+
+.settings-item__content {
+  flex: 1;
+}
+
+.settings-item__title {
+  font-size: 16px;
+}
+
+.settings-item__description {
+  font-size: 12px;
+  color: var(--dark-gray);
+}
+
+.settings-item__right {
+  color: var(--dark-gray);
+} 

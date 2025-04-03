@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正在播放 - 播客应用</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/app.js"></script>
+</head>
+<body>
+  <div class="status-bar">
+    <div class="status-bar__time">9:41</div>
+    <div class="status-bar__icons">
+      <i class="fas fa-signal"></i>
+      <i class="fas fa-wifi"></i>
+      <i class="fas fa-battery-full"></i>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="playing-view">
+      <!-- 正在播放的封面 -->
+      <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="播放中的封面" class="playing-cover">
+      
+      <!-- 播放信息 -->
+      <div class="playing-info">
+        <h2 class="playing-title">高效学习的5个关键习惯</h2>
+        <div class="playing-creator">科学声音</div>
+      </div>
+      
+      <!-- 进度条 -->
+      <div class="playing-progress">
+        <div class="progress-bar">
+          <div class="progress-bar__filled"></div>
+        </div>
+        <div class="progress-time">
+          <span>12:34</span>
+          <span>42:07</span>
+        </div>
+      </div>
+      
+      <!-- 播放控制 -->
+      <div class="playing-controls">
+        <div class="control-btn">
+          <i class="fas fa-step-backward"></i>
+        </div>
+        <div class="control-btn">
+          <i class="fas fa-backward"></i>
+        </div>
+        <div class="control-btn large">
+          <i class="fas fa-pause"></i>
+        </div>
+        <div class="control-btn">
+          <i class="fas fa-forward"></i>
+        </div>
+        <div class="control-btn">
+          <i class="fas fa-step-forward"></i>
+        </div>
+      </div>
+      
+      <!-- 额外操作 -->
+      <div class="playing-actions">
+        <div class="playing-action">
+          <i class="fas fa-heart"></i>
+          <span>收藏</span>
+        </div>
+        <div class="playing-action">
+          <i class="fas fa-share-alt"></i>
+          <span>分享</span>
+        </div>
+        <div class="playing-action">
+          <i class="fas fa-sliders-h"></i>
+          <span>音效</span>
+        </div>
+        <div class="playing-action">
+          <i class="fas fa-list"></i>
+          <span>列表</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <div class="nav-bar">
+    <a href="home.html" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span>首页</span>
+    </a>
+    <a href="explore.html" class="nav-item">
+      <i class="fas fa-compass"></i>
+      <span>发现</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fas fa-plus-circle"></i>
+      <span>订阅</span>
+    </a>
+    <a href="profile.html" class="nav-item">
+      <i class="fas fa-user"></i>
+      <span>我的</span>
+    </a>
+  </div>
+</body>
+</html> 
